@@ -10,8 +10,8 @@ module.exports = function(params){
 
   return {
 
-    update:function(data){
-      let value = data.value;
+    update:function(...data){
+      let value = data[0];
       let sma;
       let response = false;
 
