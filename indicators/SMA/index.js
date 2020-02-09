@@ -1,15 +1,12 @@
 const roundTo = require('round-to')
 
-module.exports = function(options){
+module.exports = function(params){
 
-  let periods = options.periods;
-  let log = options.log || true;
-  let decimals = options.decimals || 2;
+  let periods = params[1];
+  let decimals = params[2] || 2;
 
   const values = [];
   let smas = [];
-
-  if(log) console.log('Indicator Simple Moving Average constructed');
 
   return {
 

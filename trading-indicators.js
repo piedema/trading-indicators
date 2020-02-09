@@ -1,7 +1,7 @@
-module.exports = function(options){
+module.exports = function(...params){
 
-  let name = options.name;
+  let indicator = params[0];
 
-  return require(`./indicators/${name}`)(options);
+  return require(`./indicators/${indicator}`)(params);
 
 }
