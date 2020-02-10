@@ -1,12 +1,17 @@
 
-let testvalues = [ 90.91, 90.83, 90.28, 90.36, 90.90, 91.04, 90.66, 90.78 ];
+let testvalues = [ 90.12, 90.65, 90.65, 90.45, 90.91, 90.83, 90.28, 90.36, 90.90, 91.04, 90.66, 90.78 ];
 
-let SMA = require('./trading-indicators')('SMA', 5);
+let SMA = require('./trading-indicators')('SMA', 3);
 for(let i = 0; i < testvalues.length; i++) SMA.update(testvalues[i]);
-console.log('SMAs: ', SMA.get()); // should be [ 90.75, 90.65, 90.68, 90.66 ]
-console.log('SMA: ', SMA.getLast()); // should be 90.75
+console.log('SMAs: ', SMA.get()); // should be [ 90.83, 90.87, 90.77 ]
+console.log('SMA: ', SMA.getLast()); // should be 90.83
 
-let WMA = require('./trading-indicators')('WMA', 5);
+let WMA = require('./trading-indicators')('WMA', 3);
 for(let i = 0; i < testvalues.length; i++) WMA.update(testvalues[i]);
-console.log('WMAs: ', WMA.get()); // should be [ 90.79, 90.74, 90.75, 90.62 ]
-console.log('WMA: ', WMA.getLast()); // should be 90.79
+console.log('WMAs: ', WMA.get()); // should be [ 90.78, 90.83, 90.88 ]
+console.log('WMA: ', WMA.getLast()); // should be 90.78
+
+let EMA = require('./trading-indicators')('EMA', 3, 2);
+for(let i = 0; i < testvalues.length; i++) EMA.update(testvalues[i]);
+console.log('EMAs: ', EMA.get()); // should be [ 90.79, 90.74, 90.75, 90.62 ]
+console.log('EMA: ', EMA.getLast()); // should be 90.79
