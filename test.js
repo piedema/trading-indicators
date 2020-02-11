@@ -11,7 +11,12 @@ for(let i = 0; i < testvalues.length; i++) WMA.update(testvalues[i]);
 console.log('WMAs: ', WMA.get()); // should be [ 90.78, 90.83, 90.88 ]
 console.log('WMA: ', WMA.getLast()); // should be 90.78
 
-let EMA = require('./trading-indicators')('EMA', 3, 2);
+let EMA = require('./trading-indicators')('EMA', 3);
 for(let i = 0; i < testvalues.length; i++) EMA.update(testvalues[i]);
 console.log('EMAs: ', EMA.get()); // should be [ 90.79, 90.74, 90.75, 90.62 ]
 console.log('EMA: ', EMA.getLast()); // should be 90.79
+
+let SD = require('./trading-indicators')('SD', 3);
+for(let i = 0; i < testvalues.length; i++) SD.update(testvalues[i]);
+console.log('SDs: ', SD.get()); // should be [ 00.16, 00.16, 00.29 ]
+console.log('SD: ', SD.getLast()); // should be 00.16
