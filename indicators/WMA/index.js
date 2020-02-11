@@ -2,13 +2,13 @@ const roundTo = require('round-to')
 
 module.exports = function(params){
 
-  let periods = params[1];
-  let decimals = params[2] || 2;
+  const periods = params[1];
+  const decimals = params[2] || 2;
 
   const values = [];
-  let wmas = [];
+  const wmas = [];
 
-  let divisor = 0;
+  const divisor = 0;
   for(let i = periods; i > 0; i--){
     divisor += i;
   }
@@ -17,8 +17,6 @@ module.exports = function(params){
 
     update:function(...data){
       let value = data[0];
-      let wma;
-      let response = false;
 
       values.unshift(value);
       if (values.length > periods) values.pop();
@@ -29,7 +27,7 @@ module.exports = function(params){
           sum += values[i] * (periods-i);
         }
 
-        wma = roundTo(sum / divisor, decimals);
+        let wma = roundTo(sum / divisor, decimals);
         wmas.unshift(wma);
       }
 

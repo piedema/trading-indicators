@@ -2,25 +2,23 @@ const roundTo = require('round-to')
 
 module.exports = function(params){
 
-  let periods = params[1];
-  let decimals = params[2] || 2;
+  const periods = params[1];
+  const decimals = params[2] || 2;
 
   const values = [];
-  let smas = [];
+  const smas = [];
 
   return {
 
     update:function(...data){
-      let value = data[0];
-      let sma;
-      let response = false;
+      const value = data[0];
 
       values.unshift(value);
       if (values.length > periods) values.pop();
 
       if(values.length === periods){
         let sum = values.reduce((a, b) => a + b, 0);
-        sma = roundTo(sum / periods, decimals);
+        let sma = roundTo(sum / periods, decimals);
         smas.unshift(sma);
       }
 
