@@ -14,14 +14,13 @@ module.exports = function(params){
 
     update:function(...data){
       const value = data[0];
-      let ema;
 
       let sma = SMA.update(value);
 
       let ema = sma ? roundTo(value * k + sma * (1 - k), decimals) : false;
       if(ema) emas.unshift(ema);
 
-      return ema;
+      return emas[0];
     },
 
     get:function(n = periods){

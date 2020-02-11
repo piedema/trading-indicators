@@ -8,7 +8,7 @@ module.exports = function(params){
   const values = [];
   const wmas = [];
 
-  const divisor = 0;
+  let divisor = 0;
   for(let i = periods; i > 0; i--){
     divisor += i;
   }
@@ -31,7 +31,7 @@ module.exports = function(params){
         wmas.unshift(wma);
       }
 
-      return wma;
+      return wmas[0];
     },
 
     get:function(n = periods){

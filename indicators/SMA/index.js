@@ -22,7 +22,7 @@ module.exports = function(params){
         smas.unshift(sma);
       }
 
-      return sma;
+      return smas[0];
     },
 
     get:function(n = periods){
