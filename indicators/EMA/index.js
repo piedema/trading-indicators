@@ -17,7 +17,7 @@ module.exports = function(params){
 
       let sma = SMA.update(value);
 
-      let ema = sma ? roundTo(value * k + sma * (1 - k), decimals) : false;
+      let ema = sma ? roundTo((value * k) + (sma * (1 - k)), decimals) : false;
       if(ema) emas.unshift(ema);
 
       return emas[0];
